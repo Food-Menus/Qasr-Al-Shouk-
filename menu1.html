@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>نادي الإخلاص  </title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wood-brown: #3d2616;
+            --led-gold: #ffcc00;
+            --led-pink: #ff0055;
+            --led-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0d0800;
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+/* الأنماط المتحركة للـ Header والـ Footer */
+header, footer {
+    /* لون الخلفية الأساسي */
+    background-color: var(--wood-brown);
+    /* إضافة نمط خطوط مائلة أغمق قليلاً */
+    background-image: linear-gradient(
+        45deg, 
+        rgba(0, 0, 0, 0.2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0.2) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 80px 80px; /* حجم النمط */
+    animation: movePattern 30s linear infinite; /* تشغيل الحركة */
+}
+
+header {
+    padding: 12px 5%;
+    backdrop-filter: blur(4px);
+    border-bottom: 2px solid var(--led-gold);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer {
+    padding: 15px 12px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--led-gold);
+    width: 100%;
+    margin-top: auto;
+    font-weight: 600;
+    border-top: 2px solid var(--led-gold);
+}
+
+/* حركة النمط */
+@keyframes movePattern {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 800px 40px;
+    }
+}
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--led-gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border: 1px solid var(--led-gold);
+            border-radius: 40px;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .nav-link:hover {
+            background: var(--led-gold);
+            color: #1a1a00;
+            box-shadow: 0 0 12px var(--led-gold);
+        }
+
+        .pricing-section {
+            flex: 1;
+            padding: 40px 5%;
+        }
+
+        .page-title {
+            background: rgba(0, 0, 0, 0.65);
+            border: 3px solid var(--led-gold);
+            border-radius: 28px;
+            padding: 30px 20px;
+            margin-bottom: 45px;
+            text-align: center;
+            box-shadow: var(--led-shadow), inset var(--led-shadow);
+            backdrop-filter: blur(3px);
+        }
+
+        .page-title h1 {
+            font-size: clamp(1.8rem, 8vw, 3rem);
+            font-weight: 900;
+            color: var(--led-gold);
+            text-shadow: 0 0 8px #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            color: #f0e6c5;
+        }
+
+        .category-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: linear-gradient(145deg, #1e1508, #0f0b02);
+            border-radius: 28px;
+            border: 2px solid var(--led-gold);
+            box-shadow: var(--led-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(255, 204, 0, 0.5);
+        }
+
+        .category-image {
+            flex: 1;
+            min-width: 240px;
+            max-width: 320px;
+            background: #2a1e0e;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .category-info {
+            flex: 2;
+            padding: 28px 25px;
+        }
+
+        .category-info h2 {
+            color: var(--led-gold);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-right: 5px solid var(--led-gold);
+            padding-right: 15px;
+            display: inline-block;
+            text-shadow: 0 0 3px #ffcc66;
+        }
+
+        .price-list {
+            margin-top: 15px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 14px 10px;
+            border-bottom: 1px dashed rgba(255, 204, 0, 0.4);
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .price-item:hover {
+            background: rgba(255, 204, 0, 0.15);
+            border-radius: 12px;
+            padding-right: 15px;
+        }
+
+        .item-name {
+            color: #fff3cf;
+            font-weight: bold;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+        }
+
+        .item-price {
+            color: var(--led-gold);
+            font-weight: 800;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            background: #2a1f0c;
+            padding: 4px 12px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+        }
+
+        .loader {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--led-gold);
+            background: rgba(0,0,0,0.6);
+            border-radius: 28px;
+            border: 1px solid var(--led-gold);
+            backdrop-filter: blur(4px);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff8866;
+            background: rgba(0,0,0,0.8);
+            border-radius: 28px;
+            border: 2px solid #ff0055;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--wood-brown);
+            color: var(--led-gold);
+            padding: 10px 25px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #e4a022;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+
+        .back-home:hover {
+            background: #5a3a20;
+            box-shadow: 0 0 10px var(--led-gold);
+        }
+
+
+
+        .footer-content {
+            color: var(--led-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-green1 {
+            background: #8b5a2b;
+            padding: 8px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--led-gold);
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
+            border: 1px solid #ffcc66;
+            transition: 0.2s;
+        }
+
+        .btn-green1:hover {
+            background: #b57c3a;
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            .category-card {
+                flex-direction: column;
+            }
+            .category-image {
+                max-width: 100%;
+                height: 210px;
+            }
+            .category-info {
+                padding: 20px;
+            }
+            .category-info h2 {
+                font-size: 1.5rem;
+            }
+            .price-item {
+                padding: 10px 5px;
+            }
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-section {
+                padding: 20px 4%;
+            }
+            .page-title {
+                padding: 20px 15px;
+            }
+            .item-price {
+                font-size: 0.9rem;
+                padding: 2px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="nav-link">🏠 الرئيسية</a>
+            <a href="contact.html" class="nav-link">📞 تواصل معنا</a>
+        </nav>
+    </header>
+
+    <div class="pricing-section">
+        <div class="page-title">
+            <h1>منيو الساقع 🍸</h1>
+            <p> كل انواع الحاجة الساقعه </p>
+        </div>
+
+        <div class="category-container">
+            <div id="section-drinks" class="category-card" style="display: none;">
+                <div class="category-image">
+                    <img src="./photo/poznan-poland-apr-bottles-global-soft-drink-brands-including-products-coca-cola-company-pepsico-bottles-global-soft-114614636.webp" alt="مشروبات نادي الإخلاص" style="object-fit: cover;">
+                </div>
+                <div class="category-info">
+                    <h2>✨ المشروبات </h2>
+                    <div id="list-drinks" class="price-list"></div>
+                </div>
+            </div>
+
+            <div id="main-loader" class="loader">
+                🍃 جاري تحضير القعدة... سيفين ولا كولا؟ 🍵
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" class="back-home">🔙 العودة للقعدة الرئيسية</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h5> &copy; 2026 Techno Science - جميع الحقوق محفوظة</h5>
+        </div>
+    </footer>
+
+    <script>
+        const drinksSheetURL = 'https://docs.google.com/spreadsheets/d/1OeeRr0L5e_ndyvTEbUyXxnvupHE2wcRgF17niiuXujk/export?format=csv';
+
+        async function loadDrinks() {
+            const loaderDiv = document.getElementById('main-loader');
+            const sectionContainer = document.getElementById('section-drinks');
+            const listContainer = document.getElementById('list-drinks');
+            
+            try {
+                const response = await fetch(drinksSheetURL);
+                if (!response.ok) throw new Error('فشل تحميل البيانات');
+                
+                const data = await response.text();
+                const rows = data.split('\n').filter(row => row.trim().length > 0);
+                
+                let startIndex = 0;
+                if (rows.length > 0) {
+                    const firstRow = rows[0].toLowerCase();
+                    if (firstRow.includes('type') || firstRow.includes('product') || firstRow.includes('اسم') || firstRow.includes('name')) {
+                        startIndex = 1;
+                    }
+                }
+                
+                let html = '';
+                let itemsCount = 0;
+                
+                for (let i = startIndex; i < rows.length; i++) {
+                    const row = rows[i].trim();
+                    if (row.length === 0) continue;
+                    
+                    let columns = [];
+                    let inQuotes = false;
+                    let current = '';
+                    
+                    for (let j = 0; j < row.length; j++) {
+                        const ch = row[j];
+                        if (ch === '"') {
+                            inQuotes = !inQuotes;
+                        } else if (ch === ',' && !inQuotes) {
+                            columns.push(current);
+                            current = '';
+                        } else {
+                            current += ch;
+                        }
+                    }
+                    columns.push(current);
+                    
+                    columns = columns.map(col => col.replace(/^"|"$/g, '').trim());
+                    
+                    if (columns.length >= 2) {
+                        const drinkName = columns[0];
+                        const price = columns[1];
+                        if (drinkName && drinkName !== '' && price && price !== '') {
+                            html += `
+                                <div class="price-item">
+                                    <span class="item-name">🍹 ${drinkName}</span>
+                                    <span class="item-price">${price} ج.م</span>
+                                </div>`;
+                            itemsCount++;
+                        }
+                    }
+                }
+                
+                if (itemsCount === 0) {
+                    throw new Error('لا توجد مشروبات في قاعدة البيانات');
+                }
+                
+                listContainer.innerHTML = html;
+                sectionContainer.style.display = 'flex';
+                loaderDiv.style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error loading drinks:', error);
+                loaderDiv.innerHTML = `
+                    <div class="error-message">
+                        ❌ عذراً، فشل تحميل قائمة المشروبات من قاعدة البيانات ❌<br>
+                        يرجى التأكد من الاتصال بالإنترنت أو مراجعة البيانات في جوجل شيت<br>
+                        <span style="font-size: 0.9rem; display: block; margin-top: 15px;">⚠️ الخطأ: ${error.message}</span>
+                    </div>
+                `;
+                sectionContainer.style.display = 'none';
+            }
+        }
+        
+        loadDrinks();
+    </script>
+</body>
+</html>

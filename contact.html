@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>نادي الإخلاص  </title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wood-brown: #3d2616;
+            --led-gold: #ffcc00;
+            --led-pink: #ff0055;
+            --led-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0d0800;
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+/* الأنماط المتحركة للـ Header والـ Footer */
+header, footer {
+    /* لون الخلفية الأساسي */
+    background-color: var(--wood-brown);
+    /* إضافة نمط خطوط مائلة أغمق قليلاً */
+    background-image: linear-gradient(
+        45deg, 
+        rgba(0, 0, 0, 0.2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0.2) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 80px 80px; /* حجم النمط */
+    animation: movePattern 30s linear infinite; /* تشغيل الحركة */
+}
+
+header {
+    padding: 12px 5%;
+    backdrop-filter: blur(4px);
+    border-bottom: 2px solid var(--led-gold);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer {
+    padding: 15px 12px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--led-gold);
+    width: 100%;
+    margin-top: auto;
+    font-weight: 600;
+    border-top: 2px solid var(--led-gold);
+}
+
+/* حركة النمط */
+@keyframes movePattern {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 800px 40px;
+    }
+}
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--led-gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border: 1px solid var(--led-gold);
+            border-radius: 40px;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .nav-link:hover {
+            background: var(--led-gold);
+            color: #1a1a00;
+            box-shadow: 0 0 12px var(--led-gold);
+        }
+
+        .contact-section {
+            flex: 1;
+            padding: 40px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-card {
+            max-width: 650px;
+            width: 100%;
+            background: linear-gradient(145deg, #1e1508, #0f0b02);
+            border: 3px solid var(--led-gold);
+            border-radius: 32px;
+            box-shadow: var(--led-shadow), inset var(--led-shadow);
+            padding: 40px 35px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 35px rgba(255, 204, 0, 0.5);
+        }
+
+        .contact-card h2 {
+            color: var(--led-gold);
+            font-size: clamp(1.8rem, 6vw, 2.3rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-shadow: 0 0 5px #ffcc66;
+            border-bottom: 2px solid var(--led-gold);
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .contact-info-list {
+            margin: 25px 0;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            color: #f5e6c4;
+            background: rgba(0,0,0,0.4);
+            padding: 12px 20px;
+            border-radius: 60px;
+            border-right: 4px solid var(--led-gold);
+            transition: 0.2s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 204, 0, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .contact-item strong {
+            color: var(--led-gold);
+            font-weight: 900;
+            margin-left: 8px;
+        }
+
+        .contact-item a {
+            color: #ffefb9;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            color: var(--led-gold);
+            text-shadow: 0 0 3px #ffcc00;
+        }
+
+        hr {
+            border: 0.5px solid rgba(255, 204, 0, 0.3);
+            margin: 25px 0;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid var(--led-gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 320px;
+            display: block;
+            border: none;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--wood-brown);
+            color: var(--led-gold);
+            padding: 10px 25px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #e4a022;
+            margin-top: 25px;
+            transition: 0.2s;
+        }
+
+        .back-home:hover {
+            background: #5a3a20;
+            box-shadow: 0 0 10px var(--led-gold);
+        }
+
+
+        .footer-content {
+            color: var(--led-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 550px) {
+            .contact-card {
+                padding: 25px 20px;
+            }
+            .contact-item {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            .map-container iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="nav-link">🏠 الرئيسية</a>
+        <a href="pricing.html" class="nav-link">☕ قائمة المشروبات</a>
+    </nav>
+</header>
+
+<div class="contact-section">
+    <div class="contact-card">
+        <h2>📞 تواصل مع نادي الإخلاص</h2>
+        
+        <div class="contact-info-list">
+            <div class="contact-item">
+                <strong>📍 العنوان:</strong> بجوار  مترو سنتريز - شبرا مصر
+            </div>
+            <div class="contact-item">
+                <strong>📞 الهاتف:</strong> <a href="tel:01093014639">01093014639</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d267.1763223104578!2d31.24536860284799!3d30.08784202345247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458406c0002fb41%3A0x9959722226caaf3a!2sSt.%20Teresa!5e1!3m2!1sen!2seg!4v1776872135224!5m2!1sen!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <a href="index.html" class="back-home">🔙 العودة للقعدة الرئيسية</a>
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-content">
+            <h5> &copy; 2026 Techno Science - جميع الحقوق محفوظة</h5>
+        </div>
+    </footer>
+
+</body>
+</html>

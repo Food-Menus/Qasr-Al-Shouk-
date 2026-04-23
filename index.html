@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>نادي الإخلاص  </title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wood-brown: #301908;
+            --led-gold: #ffbf00;
+            --led-pink: #ff0055;
+            --led-shadow: 0 0 15px rgba(255, 204, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #1f1007;
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+/* الأنماط المتحركة للـ Header والـ Footer */
+header, footer {
+    /* لون الخلفية الأساسي */
+    background-color: var(--wood-brown);
+    /* إضافة نمط خطوط مائلة أغمق قليلاً */
+    background-image: linear-gradient(
+        45deg, 
+        rgba(0, 0, 0, 0.2) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0.2) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 80px 80px; /* حجم النمط */
+    animation: movePattern 30s linear infinite; /* تشغيل الحركة */
+}
+
+header {
+    padding: 12px 5%;
+    backdrop-filter: blur(4px);
+    border-bottom: 2px solid var(--led-gold);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer {
+    padding: 15px 12px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--led-gold);
+    width: 100%;
+    margin-top: auto;
+    font-weight: 600;
+    border-top: 2px solid var(--led-gold);
+}
+
+/* حركة النمط */
+@keyframes movePattern {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 800px 40px;
+    }
+}
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-link {
+            color: var(--led-gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border: 1px solid var(--led-gold);
+            border-radius: 40px;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .contact-link:hover {
+            background: var(--led-gold);
+            color: #1a1a00;
+            box-shadow: 0 0 12px var(--led-gold);
+        }
+
+        .hero {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            /* منع التكرار وجعل الصورة تغطي المساحة بالكامل */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('./photo/Gemini_Generated_Image_mffzo8mffzo8mffz.png');
+            background-repeat: no-repeat;
+            
+            /* جعل العرض أكبر قليلاً للحركة مع الحفاظ على الطول يغطي الشاشة */
+            background-size: auto 100vh; 
+            
+            /* في الشاشات الكبيرة نضمن إنها بتغطي العرض برضه */
+            background-attachment: fixed; 
+
+            margin: 20px 20px 30px 20px;
+            padding: 25px 20px;
+            text-align: center;
+            border: 3px solid var(--led-gold);
+            border-radius: 28px;
+            box-shadow: var(--led-shadow), inset var(--led-shadow);
+            
+            /* الحركة */
+            animation: moveBackground 30s ease-in-out infinite alternate;
+            overflow: hidden;
+        }
+
+        /* تعديل الـ Keyframes لتناسب حجم الـ auto 100vh */
+        @keyframes moveBackground {
+            0% {
+                background-position: left center;
+            }
+            100% {
+                background-position: right center;
+            }
+        }
+
+        /* ميديا كويري لضمان إنها تغطي العرض في الشاشات الواسعة جداً */
+        @media (min-aspect-ratio: 16/9) {
+            .hero {
+                background-size: 110% auto; /* تكبير العرض في الشاشات العريضة */
+            }
+        }
+
+        .neon-title {
+            font-size: clamp(2.2rem, 10vw, 4.2rem);
+            white-space: nowrap;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 20px var(--led-pink), 0 0 45px var(--led-pink);
+            animation: flicker 2s infinite alternate;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.8; }
+        }
+
+        .hero h3 {
+            font-size: clamp(1.3rem, 6vw, 2rem);
+            color: #00ecff;
+            margin: 8px 0;
+            font-weight: 800;
+        }
+
+        .hero h4 {
+            font-size: clamp(1rem, 4.5vw, 1.3rem);
+            max-width: 85%;
+            color: #f0e6c5;
+            margin: 12px 0;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .main-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 25px;
+            width: 80%;
+            max-width: 260px;
+            align-items: center;
+        }
+
+        .wood-btn {
+            background: var(--wood-brown);
+            color: var(--led-gold) !important;
+            padding: 14px 20px;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #e4a022;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .wood-btn:hover {
+            transform: scale(1.02);
+            background: #4e301c;
+            border-color: var(--led-gold);
+            box-shadow: 0 0 12px var(--led-gold);
+        }
+
+        .menu-options {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1e1305e6;
+            backdrop-filter: blur(8px);
+            border: 2px solid #00ecff;
+            border-radius: 60px;
+            z-index: 100;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .option {
+            background: #2c1c0b;
+            border: 1px solid var(--led-gold);
+            color: #ffefb9;
+            font-weight: bold;
+            font-family: 'Cairo';
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            background: var(--led-gold);
+            color: #1f1a00;
+            transform: scale(1.02);
+        }
+
+        .btn-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .hidden { display: none !important; }
+        .visible { display: flex !important; }
+
+
+        @media (max-width: 550px) {
+            .hero {
+                margin: 12px 12px 20px 12px;
+                padding: 20px 12px;
+            }
+            .wood-btn {
+                font-size: 1.1rem;
+                padding: 12px 16px;
+            }
+            .neon-title {
+                font-size: clamp(3.2rem, 9vw, 2.8rem);
+            }
+            .hero h4 { max-width: 95%; }
+            .main-actions {
+                width: 90%;
+                max-width: 240px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .wood-btn {
+                font-size: 0.95rem;
+                padding: 10px 8px;
+            }
+            .neon-title {
+                font-size: clamp(1.4rem, 7vw, 2rem);
+            }
+            .main-actions { gap: 12px; }
+        }
+
+        @media (min-width: 900px) {
+            .main-actions { max-width: 300px; }
+            .wood-btn { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="contact.html" class="contact-link">📞 تواصل معنا</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="neon-title">نادي الإخلاص</h1>
+        <h3>أحلى قعدة بلدي على أصولها</h3>
+        <h4>نورت نادي اللإخاص.. شاي في الخمسينة وقهوة تعدل الدماغ وكراسي تريح البال.</h4>
+
+        <div class="main-actions"><br>
+            <div class="btn-wrapper" id="drinkWrapper">
+                <button id="menuBtn" class="wood-btn" onclick="showOptions(event)"> تشرب إيه؟  ☕</button>
+                <div id="options" class="menu-options">
+                    <button class="option" onclick="location.href='./menu1.html'">ساقع 🍸</button>
+                    <button class="option" onclick="location.href='./menu2.html'">سخن 🍵</button>
+                </div><br><br><br>
+            </div>
+            <a href="gallery.html" class="wood-btn"> اتفرج عالقعدة</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Techno Science - جميع الحقوق محفوظة
+    </footer>
+
+    <script>
+        function showOptions(event) {
+            event.stopPropagation();
+            const menuBtn = document.getElementById('menuBtn');
+            const optionsDiv = document.getElementById('options');
+            if (menuBtn && optionsDiv) {
+                menuBtn.classList.add('hidden');
+                optionsDiv.classList.add('visible');
+            }
+        }
+
+        window.onclick = function (event) {
+            const menuBtn = document.getElementById('menuBtn');
+            const optionsDiv = document.getElementById('options');
+            
+            if (!event.target.closest('.menu-options') && !event.target.closest('#menuBtn')) {
+                if (menuBtn && optionsDiv) {
+                    if (!menuBtn.classList.contains('hidden')) return;
+                    menuBtn.classList.remove('hidden');
+                    optionsDiv.classList.remove('visible');
+                }
+            }
+            
+            if (event.target.classList && event.target.classList.contains('option')) {
+                return;
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const optionsDiv = document.getElementById('options');
+            if(menuBtn && optionsDiv) {
+                menuBtn.classList.remove('hidden');
+                optionsDiv.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+
+</html>
